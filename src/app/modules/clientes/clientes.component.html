@@ -72,32 +72,48 @@
           class="navbar-white bg-white border border-top border-bottom border-left border-right"
           style="padding: 5px; color: gray; margin-bottom: 10px"
         >
-          RSA/Home
+          RSA/Clientes
         </div>
       </div>
 
-      <div style="background-color: white; padding-top: 20px">
-        <div class="table-container table-container">
-          <div class="table-row" style="display: table-row">
-            <div class="table-cell painel-controle">Painel de Controle</div>
-          </div>
-          <div class="table-row" style="display: table-row">
-            <div class="table-cell custom-button2">
-              <button class="custom-button1" (click)="clientes()">
-                Clientes
-              </button>
-              <button class="custom-button1">Usuarios</button>
-              <button class="custom-button1">Campanhas</button>
-              <button class="custom-button1">Relatorios</button>
-            </div>
-          </div>
+      <div class="div-main">
+        <div class="table-container table-control">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Pesquisar"
+            (input)="filterTable($event)"
+            style="margin-left: 88%; margin-bottom: 21px"
+          />
+          <table>
+            <thead>
+              <tr>
+                <th class="th-custom">Nome</th>
+                <th class="th-custom">Cidade</th>
+                <th class="th-custom">Contrato</th>
+                <th class="th-custom">E-mail</th>
+                <th class="th-custom">Telefone</th>
+                <th class="th-custom">Data</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of filteredData">
+                <td>{{ item.nome }}</td>
+                <td>{{ item.cidade }}</td>
+                <td>{{ item.contrato }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.telefone }}</td>
+                <td>{{ item.data }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
       <footer class="footer navbar-white bg-white border-top">
         <div class="container text-center">
           <div class="container text-center"></div>
-          <p class="custom-footer">&copy; 2023</p>
+          <p style="color: black">&copy; 2023</p>
         </div>
       </footer>
     </div>
